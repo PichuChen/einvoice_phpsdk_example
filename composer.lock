@@ -282,16 +282,16 @@
         },
         {
             "name": "guzzlehttp/ringphp",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "f43ab34aad69ca0ba04172cf2c3cd5c12fc0e5a4"
+                "reference": "52d868f13570a9a56e5fce6614e0ec75d0f13ac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/f43ab34aad69ca0ba04172cf2c3cd5c12fc0e5a4",
-                "reference": "f43ab34aad69ca0ba04172cf2c3cd5c12fc0e5a4",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/52d868f13570a9a56e5fce6614e0ec75d0f13ac2",
+                "reference": "52d868f13570a9a56e5fce6614e0ec75d0f13ac2",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-02-26 20:43:09"
+            "time": "2015-03-30 01:43:20"
         },
         {
             "name": "guzzlehttp/streams",
@@ -987,16 +987,16 @@
         },
         {
             "name": "pichuchen/einvoice",
-            "version": "1.0.7",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PichuChen/einvoice.git",
-                "reference": "b8373cf03e936f9fafd1e5c29efc2aae7aaa328f"
+                "reference": "718c8926b11222e70b5dca7954a4bb6add556627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PichuChen/einvoice/zipball/b8373cf03e936f9fafd1e5c29efc2aae7aaa328f",
-                "reference": "b8373cf03e936f9fafd1e5c29efc2aae7aaa328f",
+                "url": "https://api.github.com/repos/PichuChen/einvoice/zipball/718c8926b11222e70b5dca7954a4bb6add556627",
+                "reference": "718c8926b11222e70b5dca7954a4bb6add556627",
                 "shasum": ""
             },
             "require": {
@@ -1027,7 +1027,7 @@
                 "einvoice",
                 "g0v.tw"
             ],
-            "time": "2015-03-29 15:18:18"
+            "time": "2015-03-30 18:20:28"
         },
         {
             "name": "psr/log",

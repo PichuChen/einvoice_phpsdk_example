@@ -52,7 +52,6 @@ einvoiceControllers.controller('einvoiceCtrl',['$scope','$http', '$cookies', fun
             "&invDate=" + invDate;
 
         $http.get('/carrierInvoiceDetail?'+param).success(function(data){
-            console.log(data);
             $scope.mainTableSize = 4;
             $scope.subTableSize = 8;
             $scope.showMainTable = true;
@@ -80,12 +79,22 @@ einvoiceControllers.controller('einvoiceCtrl',['$scope','$http', '$cookies', fun
 
 }]);
 
+var getTermList = function(thisPeriod ){
+    if(typeof(thisPeriod) === 'undefined'){
+        thisPeriod = false;
+    }
 
-einvoiceControllers.controller('queryWinningListCtrl',['$scope','$http', function ($scope, $http) {
     var terms = ["10008","10010","10012"];
     var monthList = ["02","04","06","08","10","12"];
     var thisYear = ( new Date()).getYear() - 11;
     var thisMonth = ( new Date()).getMonth()+1;
+    if(thisPeriod === true){
+        thisMonth += 2;
+        if(thisMonth > 12){
+            thisMonth -= 12;
+            thisYear += 1;
+        }
+    }
     for(var year = 101;year < thisYear; ++year){
         for(var monthn in monthList){
             terms.push(""+year+monthList[monthn]);
@@ -96,15 +105,18 @@ einvoiceControllers.controller('queryWinningListCtrl',['$scope','$http', functio
         if(monthList[monthn] > thisMonth)break;
         terms.push(""+thisYear+monthList[monthn]);
     }
+    return terms;
 
+}
+
+einvoiceControllers.controller('queryWinningListCtrl',['$scope','$http', function ($scope, $http) {
+
+    var terms = getTermList();
     $scope.terms = terms;
     $scope.selectedTerm =  terms[terms.length-1];
-console.log($scope.selectedTerm);
 
     $scope.queryList = function(){
-        console.log("OV");
         $http.get('/queryWinningList?invTerm=' + $scope.selectedTerm).success(function(data){
-            console.log(data);
             data = data['data'];
             $scope.superPrizeNoList = data['superPrizeNoList'];
             $scope.spcPrizeNoList = data['spcPrizeNoList'];
@@ -115,5 +127,45 @@ console.log($scope.selectedTerm);
 
     $scope.queryList();
 
+}]);
+
+einvoiceControllers.controller('queryInvoiceHeaderCtrl',['$scope','$http', function ($scope, $http) {
+    $scope.query = function(){
+        $http.get('/queryInvoiceHeader?invNum=' + $scope.invNum + '&invDate=' + $scope.invDate).success(function(data){
+            console.log(data);
+            data = data['data'];
+            $scope.invNum = data['number'];
+            $scope.invDate = data['date'];
+            $scope.sellerName = data['sellerName'];
+            $scope.status = data['status'];
+            $scope.period = data['period'];
+        });
+    }
+
+}]);
+
+
+einvoiceControllers.controller('queryInvoiceDetailCtrl',['$scope','$http', function ($scope, $http) {
+    var terms = getTermList(true);
+    $scope.terms = terms;
+    $scope.query = function(){
+
+        var param = 'invNum=' + $scope.invNum +
+            '&invDate=' + $scope.invDate +
+            '&invTerm=' + $scope.selectedTerm +
+            "&randomNumber=" + $scope.randomNumber;
+
+        $http.get('/queryInvoiceDetail?'+param).success(function(data){
+            console.log(data);
+            data = data['data'];
+            $scope.invNum = data['number'];
+            $scope.invDate = data['date'];
+            $scope.sellerName = data['sellerName'];
+            $scope.status = data['status'];
+            $scope.period = data['period'];
+
+            $scope.details = data['details'];
+        });
+    }
 
 }]);

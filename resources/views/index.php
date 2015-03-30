@@ -55,18 +55,13 @@
             <header >
                 <h1 class="title">電子發票PHP SDK 示範站</h1>
             </header>
-            <div>
-                <ul style="list-style-type: none;">
-                    <li>Ｑ：為什麼那個有密碼？</li>
-                    <li>A：拿悠遊卡到iBon設定就有了。 連結-&gt; <a target="_blank" href="https://www.einvoice.nat.gov.tw/home/Article!showArticleDetail?articleId=F1354768&CSRT=15916142259000470854">點我</a></li>
-                    <li></li>
-                </ul>
-            </div>
             <div class="content">
                 <div class="col-md-2">
                     <ul>
                         <li><a href="#/queryCarrierInvoice">查詢載具發票</a></li>
                         <li><a href="#/queryWinningList">查詢發票號碼</a></li>
+                        <li><a href="#/queryInvoiceHeader">查詢發票標題</a></li>
+                        <li><a href="#/queryInvoiceDetail">查詢發票細節</a></li>
                         
                     </ul>
                 </div>

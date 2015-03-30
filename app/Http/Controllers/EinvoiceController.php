@@ -2,6 +2,7 @@
 
 use PichuChen\einvoice\EinvoiceClient;
 use PichuChen\einvoice\CardType;
+use PichuChen\einvoice\CodeType;
 
 class EinvoiceController extends Controller {
 
@@ -122,6 +123,44 @@ class EinvoiceController extends Controller {
             'data' => $result
         ]);
     }
+
+    public function queryInvoiceHeader()
+    {
+        if(!isset($_GET['invNum']) || !isset($_GET['invDate'])){
+            echo json_encode(['success'=>false,'err'=>'no invNum or invDate']);
+            die();
+        }
+        $result = $this->client->queryInvoiceHeader([
+            'type' => CodeType::QRCODE,
+            'invNum' => $_GET['invNum'],
+            'invDate' => $_GET['invDate']
+        ]);
+        echo json_encode([
+            'success' => true,
+            'data' => $result
+        ]);
+    }
+
+
+
+    public function queryInvoiceDetail()
+    {
+    if(!isset($_GET['invNum']) || !isset($_GET['invDate'])){
+        echo json_encode(['success'=>false,'err'=>'no invNum or invDate']);
+        die();
+    }
+    $result = $this->client->queryInvoiceDetail([
+        'type' => CodeType::BARCODE,
+        'invNum' => $_GET['invNum'],
+        'invDate' => $_GET['invDate'],
+        'invTerm' => $_GET['invTerm'],
+        'randomNumber' => $_GET['randomNumber']
+    ]);
+    echo json_encode([
+        'success' => true,
+        'data' => $result
+    ]);
+}
 
 
 }

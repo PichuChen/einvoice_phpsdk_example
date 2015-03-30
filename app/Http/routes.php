@@ -23,6 +23,12 @@ Route::get('/carrierInvoiceDetail','EinvoiceController@carrierInvoiceDetail');
 
 Route::get('/queryWinningList','EinvoiceController@queryWinningList');
 
+Route::get('/queryInvoiceHeader','EinvoiceController@queryInvoiceHeader');
+
+Route::get('/queryInvoiceDetail','EinvoiceController@queryInvoiceDetail');
+
+
+
 Route::get('home', 'HomeController@index');
 
 Route::get('queryCarrierInvoice.html',function(){
@@ -31,6 +37,14 @@ Route::get('queryCarrierInvoice.html',function(){
 
 Route::get('queryWinningList.html',function(){
     return View::make('queryWinningList');
+});
+
+Route::get('queryInvoiceHeader.html',function(){
+    return View::make('queryInvoiceHeader');
+});
+
+Route::get('queryInvoiceDetail.html',function(){
+    return View::make('queryInvoiceDetail');
 });
 
 

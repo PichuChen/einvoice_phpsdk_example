@@ -21,6 +21,14 @@ einvoiceApp.config(['$routeProvider',
                 templateUrl: 'queryWinningList.html',
                 controller: 'queryWinningListCtrl'
             }).
+            when('/queryInvoiceHeader',{
+                templateUrl: 'queryInvoiceHeader.html',
+                controller: 'queryInvoiceHeaderCtrl'
+            }).
+            when('/queryInvoiceDetail',{
+                templateUrl: 'queryInvoiceDetail.html',
+                controller: 'queryInvoiceDetailCtrl'
+            }).
             //when('/phones/:phoneId', {
             //    templateUrl: 'partials/phone-detail.html',
             //    controller: 'PhoneDetailCtrl'

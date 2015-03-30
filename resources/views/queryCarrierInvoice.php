@@ -1,4 +1,11 @@
 <div>
+    <div>
+        <ul style="list-style-type: none;">
+            <li>Ｑ：為什麼那個有密碼？</li>
+            <li>A：拿悠遊卡到iBon設定就有了。 連結-&gt; <a target="_blank" href="https://www.einvoice.nat.gov.tw/home/Article!showArticleDetail?articleId=F1354768&CSRT=15916142259000470854">點我</a></li>
+            <li></li>
+        </ul>
+    </div>
     <form ng-submit="queryCardInfo()">
         請輸入悠遊卡號碼：<input type="text" ng-model="cardNo"/><button type="button" ng-click="rememberMe()">記得我</button><br>
         請輸入密碼：<input type="password" ng-model="cardEncrypt"><br>
@@ -13,7 +20,6 @@
                 <td>{{ invoice.date }}</td>
                 <td>{{ invoice.amount }}</td>
                 <td><button ng-click="showDetail( invoice.number, invoice.date)">Details</button></td>
-
             </tr>
             </tbody>
             <thead>
